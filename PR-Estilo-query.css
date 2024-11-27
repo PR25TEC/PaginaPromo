@@ -1,0 +1,14 @@
+@media (max-width: 600px) {
+    #countdown {
+        font-size: 30px; /* Tamaño fijo en pantallas pequeñas */
+    }
+
+    #danger-sign {
+        width: 80%; /* Ajusta el tamaño en pantallas pequeñas */
+        max-width: none; /* Elimina el máximo */
+    }
+
+    #warning-text {
+        font-size: 24px; /* Tamaño fijo en pantallas pequeñas */
+    }
+}

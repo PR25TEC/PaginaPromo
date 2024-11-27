@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="tiburon-Photoroom.png" type="image/x-icon">
+    <link rel="stylesheet" href="PR-Estilo.css">
+    <link rel="stylesheet" href="PR-Estilo-query.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <title>Promo 25</title>
+    <style>
+        /* Fondo y otros estilos */
+    </style>
+</head>
+
+<body> 
+    
+    <div id="background"></div>
+    <div>
+        <div id="countdown"></div>
+        <img id="danger-sign" src="tiburon-Photoroom.png" alt="Cartel de Peligro">
+        <div id="warning-text">Tiburón rondando</div>
+    </div>
+
+    <!-- Reproductor de audio -->
+    <audio id="audio" autoplay loop>
+        <source src="Tiburon-Audio.mp4" type="audio/mp3">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <script>
+        const targetDate = new Date('2025-01-01T00:00:00').getTime(); // Fecha establecida
+        const countdownElement = document.getElementById('countdown');
+
+        const updateCountdown = () => {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            if (distance < 0) {
+                countdownElement.innerHTML = "Tiempo agotado";
+                clearInterval(interval);
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            countdownElement.innerHTML = `${String(days).padStart(2, '0')}:${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+        };
+
+        const interval = setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
